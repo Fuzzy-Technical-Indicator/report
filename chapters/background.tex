@@ -14,7 +14,7 @@
     \centering
     \includegraphics[scale=0.7]{images/fuzzy_set.png}
     \caption{ฟัซซีเซต หนาว,อบอุ่น,ร้อน และฟังก์ชันภาวะสมาชิก}
-    \label{fig:4}
+    \label{fig:1}
 \end{figure}
 
 \subsection{ระบบประมวลผลตรรกศาสตร์คลุมเครือ (Fuzzy Logic System)}
@@ -24,7 +24,7 @@
     \centering
     \includegraphics[scale=0.375]{images/ex_fis.png}
     \caption{ตัวอย่างการทำงานของระบบประมวลผลตรรกศาสตร์คลุมเครือ}
-    \label{fig:5}
+    \label{fig:2}
 \end{figure}
 
 โดยในงานนี้เราใช้ระบบฟัซซีแบบ Mamdani
@@ -41,7 +41,7 @@
     \centering
     \includegraphics[scale=0.7]{images/ex_memship.png}
     \caption{ตัวอย่างกราฟฟังก์ชันภาวะสมาชิก Triangular function}
-    \label{fig:6}
+    \label{fig:3}
 \end{figure}
 
 \subsubsection{กฏฟัซซี (Fuzzy Rules)}
@@ -75,7 +75,7 @@ OUT_{x_{1},x_{2},...,x_{n}} (y) = max_{j \in \{1,2,...,k\}}\; min(A^{(1)}_{i1,j}
     \centering
     \includegraphics[scale=0.3]{images/ex_inference.png}
     \caption{ตัวอย่างการอนุมาน}
-    \label{fig:7}
+    \label{fig:4}
 \end{figure}
 
 \subsubsection{การแปลงข้อมูลฟัซซีเป็นค่าปกติ (Defuzzification)}
@@ -94,22 +94,22 @@ OUT_{x_{1},x_{2},...,x_{n}} (y) = max_{j \in \{1,2,...,k\}}\; min(A^{(1)}_{i1,j}
 \subsection{อนุภาค (Particle)}
 อนุภาค 1 อนุภาค คือคำตอบที่เป็นไปได้ของปัญหาการหาค่าที่เหมาะสม โดยอนุภาคจะบินในปริภูมิการค้นหาหลายมิติ การเปลี่ยนแปลงของอนุภาคในกลุ่มนั้นมีอิทธิพลมาจากประสบการณ์ หรือความรู้ของเพื่อนบ้าน รูปร่างของเพื่อนบ้านมีหลายรูปแบบ และมีการสร้างอัลกอริทึมตามแต่ละรูปแบบ
 
-\subsubsection{ทอพอโลยีแบบดาว (star topology)}
+\subsubsection{ทอพอโลยีแบบดาว (Star Topology)}
 รูปแบบนี้ทำให้แต่ละอนุภาคสามารถติดต่อกับอนุภาคอื่นได้ทุกอนุภาค แต่ละอนุภาคจะสนใจอนุภาคที่ดีที่สุดในกลุ่ม และแต่ละอนุภาคจะเลียนแบบอนุภาคที่ดีที่สุดในกลุ่มนี้เอง โดยอัลกอริทึมที่จำลองสถานการณ์นี้คือ อัลกอริทึมดีที่สุดแบบรวม (global best)
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.3]{images/star_topology.png}
     \caption{รูปแบบของเพื่อนบ้านสำหรับการจัดระเบียบกลุ่มของอนุภาค ทอพอโลยีแบบดาว}
-    \label{fig:8}
+    \label{fig:5}
 \end{figure}
 
-\subsubsection{ทอพอโลยีแบบวงแหวน (ring topology)}
+\subsubsection{ทอพอโลยีแบบวงแหวน (Ring Topology)}
 รูปแบบนี้ทำให้แต่ละอนุภาคจะติดต่อได้กับเพื่อนบ้านที่ใกล้ที่สุด \(n\) อนุภาค ดังแสดงในรูป เมื่อ \(n=2\) ดังนั้นอนุภาคเคลื่อนที่ตามเพื่อนดีที่ในกลุ่มเพื่อนบ้านที่ติดต่อได้ ซึ่งอัลกอริทึมที่จำลองสถานการณ์นี้คือ อัลกอริทึมดีที่สุดแบบเฉพาะที่ (local best)
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.3]{images/ring_topology.png}
     \caption{รูปแบบของเพื่อนบ้านสำหรับการจัดระเบียบกลุ่มของอนุภาค ทอพอโลยีแบบวงแหวน}
-    \label{fig:9}
+    \label{fig:6}
 \end{figure}
 
 \subsection{อัลกอริทึมสำหรับการจัดระเบียบกลุ่มของอนุภาค}
@@ -118,7 +118,7 @@ OUT_{x_{1},x_{2},...,x_{n}} (y) = max_{j \in \{1,2,...,k\}}\; min(A^{(1)}_{i1,j}
   x_{i}(t) = x_{i}(t-1)+v_{i}(t)
 \end{equation}
 ซึ่งความเร็วนี้เป็นตัวขับในกระบวนการหาค่าที่เหมาะสม และสะท้อนถึงการแลกเปลี่ยนข้อมูลในสังคม
-\subsubsection{ฟังก์ชันจุดประสงค์ (objective function)}
+\subsubsection{ฟังก์ชันจุดประสงค์ (Objective Function)}
 เป็นฟังก์ชันที่เราสร้างขึ้นมาหรือฟังก์ชันปัญหาที่เราต้องการหาค่าที่เหมาะสมที่สุดเพื่อที่จะทำให้ได้คำตอบที่ดีที่สุด และจะใช้คำนวณหาค่าความเหมาะสม ซึ่งเปรียบเหมือนประสิทธิภาพของแต่ละอนุภาค
 
 \subsubsection{อัลกอริทึมดีที่สุดแบบรวม (Global Best)}
