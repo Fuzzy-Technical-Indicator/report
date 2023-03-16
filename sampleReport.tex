@@ -38,10 +38,16 @@
 %% Some other useful packages. Look these up to find out how to use
 %% them.
 
-% \usepackage[
-% sorting=ynt,
-% ]{biblatex}
-% \addbibresource{sampleReport.bib}
+\usepackage{csquotes}
+\usepackage{polyglossia}
+\usepackage[
+  backend=biber,
+  sorting=ynt,
+  style=numeric,
+  autolang=other
+]{biblatex}
+\addbibresource{sampleReport.bib}
+% \DeclareLanguageMapping{thai}{english}
 
 % \usepackage{natbib}    % for author-year citation styles
 % \usepackage{txfonts}
@@ -55,7 +61,7 @@
 %% the tolerance to 9999
 \tolerance=9999
 
-\bibliographystyle{plain}
+% \bibliographystyle{plain}
 % \bibliographystyle{IEEEbib}
 
 % \renewcommand{\topfraction}{0.85}
@@ -80,6 +86,7 @@
 %% the entire file when editing a certain part of your report.
 % \includeonly{chapters/intro,chapters/background}
 
+\setotherlanguage{english}
 \begin{document}
 \include{chapters/frontmatter}
 
@@ -94,8 +101,8 @@
 \include{chapters/conclusion}
 \fi
 
-\bibliography{sampleReport}
-% \printbibliography
+% \bibliography{sampleReport}
+\printbibliography
 
 \normalspacing
 \appendix
