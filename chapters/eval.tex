@@ -1,7 +1,124 @@
-\chapter{\ifproject%
-\ifenglish Experimentation and Results\else การทดลองและผลลัพธ์\fi
-\else%
-\ifenglish System Evaluation\else การประเมินระบบ\fi
-\fi}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
-ในบทนี้จะทดสอบเกี่ยวกับการทำงานในฟังก์ชันหลักๆ
+\chapter{\ifproject%
+      \ifenglish Experimentation and Results\else การทดลองและผลลัพธ์\fi
+  \else%
+      \ifenglish System Evaluation\else การประเมินระบบ\fi
+  \fi}
+
+ในการทดลองนี้เราจะใช้ระบบของเราในการทำการทดสอบโดยจะทำการทดสอบโดยใช้เงินตั้งต้น 3,000 USD และทดสอบบนตลาด Crypto Currency (BTC, ETH, BNB) และตลาดหุ้น NASDAQ (AAPL, IBM, JPM, MSFT, NKE, TSLA) ซึ่งเงินตั้งต้นจะถูกแบ่งให้เท่าๆ กันจาก 3,000 USD สำหรับแต่ละเหรียญหรือหุ้นในทั้ง 2 ตลาด โดยวิธีการเข้าซื้อจะมีดังนี้
+
+\begin{table}[ht]
+    \centering
+    \resizebox{\columnwidth}{!}{%
+        \begin{tabular}{lccccc}
+            \textbf{ส่วนเสริม}                                                                                                         &
+            \multicolumn{1}{l}{\textbf{Classical}}                                                                                   &
+            \multicolumn{1}{l}{\textbf{Fuzzy}}                                                                                       &
+            \multicolumn{1}{l}{\textbf{Fuzzy C}}                                                                                     &
+            \multicolumn{1}{l}{\textbf{Fuzzy PSO}}                                                                                   &
+            \multicolumn{1}{l}{\textbf{Fuzzy PSO}}                                                                                                                                           \\
+            ใช้ Fuzzy Logic ในการทำอินดิเคเตอร์ขึ้นมา                                                                                       &   & \checkmark &            & \checkmark & \checkmark \\
+            \begin{tabular}[c]{@{}l@{}}การจัดการเงินทุนโดยใช้ค่าของอินดิเคเตอร์จาก  Fuzzy Logic\\ (Liquidation F)\end{tabular}               &   &            & \checkmark &            & \checkmark \\
+            \begin{tabular}[c]{@{}l@{}}การใช้ Particle Swarm Optimization (PSO) ในการปรับค่าของตัว\\ แปรทางภาษาของอินดิเคเตอร์\end{tabular} &   &            &            & \checkmark & \checkmark
+        \end{tabular}%
+    }
+    \caption{ตัวชี้วัดที่นำมาใช้ในการเข้าซื้อ}
+    \label{tab:indicators}
+\end{table}
+โดยสำหรับวิธี Classical นั้นเราจะใช้ค่าของอินดิเคเตอร์แต่ละตัวตรงๆ มาใช้ตัดสินใจเข้าซื้อ ส่วนด้านล่างนี้เป็นเงื่อนไขสำหรับการทดสอบ
+%และสำหรับการใช้ PSO เราจะใช้ข้อมูล ตั้งแต่จุดเริ่มต้นต้นของแต่ละตลาดถึงเดือนมีนาคม 2023 ในการฝึกสอน แล้วในเดือนเมษายน 2023 ถึงเดือนกันยายน 2023 จะเป็นช่วงของการทดสอบและเลือกการปรับค่าที่ดีที่สุด
+
+\begin{itemize}
+    \item {มีการเข้าซื้อขั้นต่ำอยู่ที่ 30 USD}
+    \item {สำหรับการเข้าซื้อแบบที่ไม่ได้การจัดการเงินทุนจะเข้าซื้อที่ 5\% ของเงินที่มีอยู่ขณะนั้น}
+    \item {สำหรับตลาด Crypto Curreny เมื่อกำไรของการเข้าซื้อนั้น ≥ 20\% (take profit) หรือเมื่อขาดทุน ≥ 10\% (stop loss) เราจะขายออก}
+    \item {สำหรับตลาดหุ้น NASDAQ เมื่อกำไรของการเข้าซื้อนั้น ≥ 10\% (take profit) หรือเมื่อขาดทุน ≥ 5\% (stop loss) เราจะขายออก}
+\end{itemize}
+นอกจากนี้เราจะมีวิธี Buy \& Hold ซึ่งเป็นวิธีการนี้ก็คือการซื้อสินทรัพย์ไว้ด้วยจำนวนเงินทั้งหมด ตั้งแต่วันแรกที่ทดสอบไว้แล้วถือไว้โดยไม่ขายออกเป็นตัวไว้เปรียบเทียบ การทดสอบจะเริ่มตั้งแต่วันที่ 1 ตุลาคม 2023 ถึง 8 มีนาคม 2024 เป็นเวลาประมาณ 5 เดือน
+
+\section{พารามิเตอร์ในการใช้ PSO}
+ในการใช้ PSO เราจะกำหนดให้มีพารามิเตอร์ตังนี้
+\begin{itemize}
+    \item {จำนวนกลุ่ม (Swarm Size) ที่ใช้ในการฝึกสอน จะมี 3 รูปแบบ คือ 5, 10, 15}
+    \item {จำนวนสมาชิกในแต่ละกลุ่ม (Number of Particles) จะเป็น 10}
+    \item {เงื่อนไขในการจบการทำงาน คือเมื่อถึงรอบที่ 10}
+\end{itemize}
+โดยเราจะฝึกสอนโดยใช้ข้อมูลตั้งแต่จุดเริ่มต้นของข้อมูลตลาดแต่ละตลาด ถึงจุดเริ่มต้นของช่วง validation ซึ่งจะเป็น 6 เดือนก่อนหน้าวันที่ 1 ตุลาคม 2023 และเราก็จะใช้กรอบเวลาของข้อมูลเป็นสี่ชั่วโมง (4h) จากนั้นเราก็จะเลือกตัวที่ให้ผลลัพธ์ที่ดีที่สุด แล้วไปใช้ในการทดสอบต่อไป 
+
+\iffalse
+Timeframe 1h or 1d, or we should just use 1d to make it faster, if we know the current market trend, bullish or bearish
+and long on buliish only, short on bearish only -> we will gain much more profit
+\fi
+
+\section{AROON-MACD}
+สำหรับตัวชี้วัดตัวนี้จะมีตัวแปรทางภาษาตามรูปที่ \ref{fig:aroon-macd-lin} ในภาคผนวก และมี Fuzzy Rules ดังรูปที่ \ref{fig:aroon-macd-rules} ด้านล่างนี้
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/aroon-macd-rules.png}
+    \caption{Fuzzy Rules ของตัวชี้วัด AROON-MACD จากในระบบของเรา}
+    \label{fig:aroon-macd-rules}
+\end{figure}
+
+โดยสำหรับตัวชี้วัดนี้จะเป็นตัวชี้วัดแบบ Trend Following ซึ่งคือการที่เราพยายามซื้อขายสินทรัพย์ตามแนวโน้มของตลาด ถ้าตลาดกำลังอยู่ในขาขึ้นก็จะมีการทำการเข้าซื้อแบบ long และถ้าตลาดกำลังอยู่ในขาลงก็จะมีการทำการเข้าซื้อแบบ short โดย MACD จะเป็นตัวที่บอกเราว่าควรเข้าซื้อ ณ เวลาไหน และ AROON จะเป็นตัวบอกเราว่าตลาดกำลังอยู่ในขาขึ้นหรือขาลง โดยเราจะเข้าซื้อเมื่อค่าของอินดิเคเตอร์มีค่าเกิน 30
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{crrrrr}
+        \hline
+        \textbf{Symbol} & \textbf{Classical} & \textbf{Fuzzy}                          & \textbf{Fuzzy C} & \textbf{Fuzzy PSO}                      & \textbf{Fuzzy PSO C}                    \\ \hline
+        BTC             & 680.48             & 1305.54                                 & 1414.23          & 1361.90                                 & {\color[HTML]{009901} \textbf{1417.82}} \\ \hline
+        ETH             & 440.45             & 1172.24                                 & 1215.12          & {\color[HTML]{009901} \textbf{1309.22}} & 1269.03                                 \\ \hline
+        BNB             & 448.98             & {\color[HTML]{009901} \textbf{1145.47}} & 989.82           & 1048.35                                 & 1098.35                                 \\ \hline
+        TOTAL           & 1569.91            & 3623.26                                 & 3619.17          & 3719.48                                 & {\color[HTML]{009901} \textbf{3785.20}} \\ \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:aroon-macd-crypto}
+\end{table}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{crrrrr}
+        \hline
+        \textbf{Symbol} & \textbf{Classical} & \textbf{Fuzzy} & \textbf{Fuzzy C} & \textbf{Fuzzy PSO} & \textbf{Fuzzy PSO C} \\ \hline
+        AAPL            & 4.41               & -20.71         & -21.44           & -11.16             & -10.09               \\ \hline
+        IBM             & 81.12              & 192.97         & 148.08           & 161.47             & 149.91               \\ \hline
+        JPM             & 13.59              & 153.30         & 154.41           & 152.66             & 153.32               \\ \hline
+        MSFT            & 90.80              & 131.75         & 138.94           & 91.67              & 41.57                \\ \hline
+        NKE             & 45.31              & 10.87          & 10.26            & 6.08               & 7.45                 \\ \hline
+        TSLA            & 171.23             & -102.00        & -93.96           & -59.43             & -148.31              \\ \hline
+        TOTAL           & 406.46             & 366.19         & 336.30           & 341.29             & 293.84               \\ \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:stocks}
+\end{table}
+
+
+\section{RSI-BB}
+สำหรับตัวชี้วัดตัวนี้จะมีตัวแปรทางภาษาตามรูปที่ \ref{fig:rsi-bb-lin} ในภาคผนวก และมี Fuzzy Rules ดังรูปที่ \ref{fig:rsi-bb-rules} ด้านล่างนี้
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/rsi-bb-rules.png}
+    \caption{Fuzzy Rules ของตัวชี้วัด RSI-BB จากในระบบของเรา}
+    \label{fig:rsi-bb-rules}
+\end{figure}
+
+โดยสำหรับตัวชี้วัดนี้จะเป็นตัวชี้วัดแบบ Mean Reversion ซึ่งคือการที่เราคาดว่าราคาของสินทรัพย์จะมีแนวโน้มที่จะกลับมาสู่ราคาเฉลี่ย โดย bollinger band (bb) จะเป็นตัวบอกว่าราคาของสินทรัพย์นั้นสูงหรือต่ำกว่าค่าเฉลี่ยเกินไปหรือไม่ และ rsi จะเป็นตัวที่บอกเราว่าควรเข้าซื้อ ณ ตอนไหน ถ้าราคาของสินทรัพย์นั้นต่ำกว่าค่าเฉลี่ย และ rsi บอกว่าสินทรัพย์นั้นมีการขายอย่างมาก เราก็จะเข้าซื้อแบบ long และถ้าราคาของสินทรัพย์นั้นสูงกว่าค่าเฉลี่ย และ rsi บอกว่าสินทรัพย์นั้นมีการซื้ออย่างมาก เราก็จะเช้าซื้อแบบ short โดย เราจะเข้าซื้อเมื่อค่าของอินดิเคเตอร์รี้มีค่าเกิน 25
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{crrrrr}
+        \hline
+        \textbf{Symbol} & \textbf{Classical} & \textbf{Fuzzy}                          & \textbf{Fuzzy C} & \textbf{Fuzzy PSO}          & \textbf{Fuzzy PSO C}                    \\ \hline
+        BTC             & -479.80            & {\color[HTML]{000000} 1304.04}          & 1215.85          & 10.61                       & {\color[HTML]{009901} \textbf{1362.42}} \\ \hline
+        ETH             & -490.69            & 1172.24                                 & 1215.85          & {\color[HTML]{000000} 0.00} & {\color[HTML]{009901} \textbf{1238.96}} \\ \hline
+        BNB             & -413.48            & {\color[HTML]{009901} \textbf{1145.4}}  & 984.30           & 0.00                        & 0.00                                    \\ \hline
+        TOTAL           & -1383.98           & {\color[HTML]{009901} \textbf{3621.75}} & 3614.11          & 10.61                       & {\color[HTML]{000000} 2601.37}          \\ \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:rsi-bb-crypto}
+\end{table}
+
+\section{การทดลองกับตลาด sideway, และตลาด bearish}
+
+\section{การใช้กรอบของเวลาที่ต่างกัน 1h กับ 1d}
