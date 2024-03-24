@@ -123,7 +123,7 @@ Backtesting คือการนำกลยุทธ์การเทรด�
 เราจะใช้ Objective Function ที่คำนวณมาดังนี้ 
 $$ f = 
 \begin{cases}
-    50.0 & |\text{trades}| = 0 \\
+    \infty & |\text{trades}| = 0 \\
     -1 \times ((\text{np} - \text{np}_r) + (\text{mdd}_r - \text{mdd})) & \text{otherwise} \\ 
 \end{cases}
 $$ 
