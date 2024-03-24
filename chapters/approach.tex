@@ -262,16 +262,80 @@ $\text{output}_{\text{max}}$ คือค่าที่มากที่สุ
 \end{itemize}
 
 \subsection{การใช้งานเว็บแอปพลิเคชัน}
-หลังจาก Login เข้าเว็บแล้ว เว็บแอปพลิเคชันจะแบ่งการทำงานเป็น 4 หน้าหลักดังนี้
+เมื่อเข้าเว็บจะเจอหน้า Login เป็นหน้าแรกดังรูป \ref{fig:web-login} ให้ทำการใส่ Username และกดปุ่ม Login จะสามารถเข้าใช้งานเว็บ โดยเว็บแอปพลิเคชันจะแบ่งการทำงานเป็น 4 หน้าหลักดังนี้
 \begin{itemize}
     \item หน้า Chart สำหรับแสดงผลกราฟ OHLC ของตลาดสินทรัพย์, ตัวชี้วัดทางเทคนิค
     \item หน้า Settings สำหรับการสร้าง/แก้ไข/ลบ Preset ของระบบ Fuzzy logic
     \item หน้า Backtests สำหรับทำการทดสอบกลยุทธ์ย้อนหลัง และดูผลลัพธ์การทดสอบ
     \item หน้า PSO สำหรับการปรับจูนตัวแปรทางภาษาด้วย PSO และดูผลลัพธ์การปรับจูน
 \end{itemize}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/login.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า Login}
+    \label{fig:web-login}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{การใช้งานหน้า Chart}
-.....
+หลังจาก Login แล้วจะเข้ามายังหน้า Chart ซึ่งประกอบไปด้วย กราฟแท่งเทียน OHLC สำหรับแสดงราคาเปิด-ปิดของตลาดตามข้อมูล Symbol และ Interval ที่เลือกไว้ โดยเริ่มต้นคือ ETH/USDT ที่ Interval 1D ดังรูป \ref{fig:chart-ohlc}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/chart-ohlc.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า Chart}
+    \label{fig:chart-ohlc}
+\end{figure}
+\FloatBarrier
+โดยผู้ใช้สามารถปรับเปลี่ยน Symbol และ Interval เป็นแบบอื่นได้ โดยการกดเลือกที่ Dropdown ดังรูป \ref{fig:chart-symbol-dd} และ \ref{fig:chart-interval-dd}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/chart-symbol-dd.PNG}
+    \caption{Dropdown สำหรับการเปลี่ยน Symbol}
+    \label{fig:chart-symbol-dd}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/chart-interval-dd.PNG}
+    \caption{Dropdown สำหรับการเปลี่ยน Interval}
+    \label{fig:chart-interval-dd}
+\end{figure}
+\FloatBarrier
+ผู้ใช้สามารถเปิดใช้งานตัวชี้วัดทางเทคนิคพื้นฐานที่มีให้โดยการติ๊กที่ Box หน้าชื่อตัวชี้วัด ดังรูป \ref{fig:chart-indicators-selector}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/chart-indicator-selector.PNG}
+    \caption{การเปิดใช้งานตัวชี้วัดทางเทคนิคพื้นฐาน}
+    \label{fig:chart-indicators-selector}
+\end{figure}
+\FloatBarrier
+หลังจากเปิดใช้งานตัวชี้วัดทางเทคนิคจะแสดงกราฟผลลัพธ์ที่ได้ด้านล่างกราฟตลาดดังรูป \ref{fig:chart-indicator-on} และผู้ใช้สามารถปรับการตั้งค่าของตัวชี้วัดทางเทคนิคนั้นๆได้โดยกดที่รูปเฟืองจะแสดง Dialog การตั้งค่าขึ้นดังรูป \ref{fig:chart-indicator-setting}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/chart-indicator-on.PNG}
+    \caption{กราฟแสดงผลลัพธ์ตัวชี้วัดทางเทคนิค RSI, MACD, AROON}
+    \label{fig:chart-indicator-on}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/chart-indicator-setting.PNG}
+    \caption{Dialog สำหรับตั้งค่าตัวชี้วัดทางเทคนิค RSI}
+    \label{fig:chart-indicator-setting}
+\end{figure}
+\FloatBarrier
+และส่วนสุดท้ายคือการเปิดใช้งานตัวชี้วัดทางเทคนิคจากระบบ Fuzzy โดยกดที่ปุ่ม FUZZY PRESETS จะแสดง Dialog สำหรับการเลือกเปิดใช้งานตัวชี้วัด Fuzzy ตาม Presets ต่างๆที่เราสร้างไว้ ดังรูป \ref{fig:chart-fuzzypreset-selector} และ \ref{fig:chart-fuzzy-on}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/chart-fuzzypreset-selector.PNG}
+    \caption{Dialog สำหรับการเลือกเปิดใช้งานตัวชี้วัด Fuzzy จาก Preset}
+    \label{fig:chart-fuzzypreset-selector}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/chart-fuzzy-on.PNG}
+    \caption{กราฟแสดงผลลัพธ์ตัวชี้วัดทางเทคนิคที่ได้จากระบบ Fuzzy}
+    \label{fig:chart-fuzzy-on}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{การใช้งานหน้า Settings}
 .....
