@@ -35,7 +35,7 @@
     \item {สำหรับตลาด Crypto Curreny เมื่อกำไรของการเข้าซื้อนั้น ≥ 20\% (take profit) หรือเมื่อขาดทุน ≥ 10\% (stop loss) เราจะขายออก}
     \item {สำหรับตลาดหุ้น NASDAQ เมื่อกำไรของการเข้าซื้อนั้น ≥ 10\% (take profit) หรือเมื่อขาดทุน ≥ 5\% (stop loss) เราจะขายออก}
 \end{itemize}
-นอกจากนี้เราจะมีวิธี Buy \& Hold ซึ่งเป็นวิธีการนี้ก็คือการซื้อสินทรัพย์ไว้ด้วยจำนวนเงินทั้งหมด ตั้งแต่วันแรกที่ทดสอบไว้แล้วถือไว้โดยไม่ขายออกเป็นตัวไว้เปรียบเทียบ การทดสอบจะเริ่มตั้งแต่วันที่ 1 ตุลาคม 2023 ถึง 8 มีนาคม 2024 เป็นเวลาประมาณ 5 เดือน
+นอกจากนี้เราจะมีวิธี Buy \& Hold ซึ่งเป็นวิธีการนี้ก็คือการซื้อสินทรัพย์ไว้ด้วยจำนวนเงินทั้งหมด ตั้งแต่วันแรกที่ทดสอบไว้แล้วถือไว้โดยไม่ขายออกเป็นตัวไว้เปรียบเทียบ การทดสอบจะเริ่มตั้งแต่วันที่ 1 ตุลาคม 2023 ถึง 8 มีนาคม 2024 เป็นเวลาประมาณ 5 เดือน โดยใช้กรอบเวลาเป็น 1 ชั่วโมง (1h)
 
 \section{พารามิเตอร์ในการใช้ PSO}
 ในการใช้ PSO เราจะกำหนดให้มีพารามิเตอร์ตังนี้
@@ -45,11 +45,6 @@
     \item {เงื่อนไขในการจบการทำงาน คือเมื่อถึงรอบที่ 10}
 \end{itemize}
 โดยเราจะฝึกสอนโดยใช้ข้อมูลตั้งแต่จุดเริ่มต้นของข้อมูลตลาดแต่ละตลาด ถึงจุดเริ่มต้นของช่วง validation ซึ่งจะเป็น 6 เดือนก่อนหน้าวันที่ 1 ตุลาคม 2023 และเราก็จะใช้กรอบเวลาของข้อมูลเป็นสี่ชั่วโมง (4h) จากนั้นเราก็จะเลือกตัวที่ให้ผลลัพธ์ที่ดีที่สุด แล้วไปใช้ในการทดสอบต่อไป
-
-\iffalse
-    Timeframe 1h or 1d, or we should just use 1d to make it faster, if we know the current market trend, bullish or bearish
-    and long on buliish only, short on bearish only -> we will gain much more profit
-\fi
 
 \section{AROON-MACD}
 สำหรับตัวชี้วัดตัวนี้จะมีตัวแปรทางภาษาตามรูปที่ \ref{fig:aroon-macd-lin} ในภาคผนวก และมี Fuzzy Rules ดังรูปที่ \ref{fig:aroon-macd-rules} ด้านล่างนี้
@@ -76,13 +71,6 @@
     \label{tab:aroon-macd-crypto}
 \end{table}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{images/aroon-macd/crypto-result.png}
-    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด AROON-MACD ในตลาด Crypto Currency}
-    \label{fig:aroon-macd-crypto}
-\end{figure}
-
 \begin{table}[!h]
     \centering
     \begin{tabular}{crrrrr}
@@ -100,14 +88,7 @@
     \label{tab:aroon-macd-stocks}
 \end{table}
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{images/aroon-macd/stock-result.png}
-    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด AROON-MACD ในตลาดหุ้น NASDAQ}
-    \label{fig:aroon-macd-stock}
-\end{figure}
-
-จากตารางที่ \ref{tab:aroon-macd-crypto} และรูปที่ \ref{fig:aroon-macd-crypto} เราจะเห็นว่าการใช้ตัวชี้วัดที่ใช้ Fuzzy Logic นั้นให้ผลลัพธ์ที่ดีกว่าแบบ Classical ในตลาด Crypto Currency แต่ในตารางที่ \ref{tab:aroon-macd-stocks} และรูปที่ \ref{fig:aroon-macd-stock}
+จากตารางที่ \ref{tab:aroon-macd-crypto} และรูปที่ \ref{fig:aroon-macd-crypto} เราจะเห็นว่าการใช้ตัวชี้วัดที่ใช้ Fuzzy Logic นั้นให้ผลลัพธ์ที่ดีกว่าแบบ Classical ในตลาด Crypto Currency ซึ่งจะเห็นว่า Fuzzy PSO C ให้ผลลัพธ์ที่ดีที่สุด โดยอาจจะมาจากการที่ PSO เรียนรู้ว่า Crypto Currency นี้มีแนวโน้มจะขึ้นตลอดดังตัวอย่างของตัวชี้วัดที่ได้จากรูปที่ \ref{fig:aroon-macd-example} ทำให้มีการเข้าซื้อสินทรัพย์แบบ long position เยอะกว่าแบบ short position และในช่วงที่เราทดสอบก็เป็นขาขึ้นของตลาด Crypto Currency ซึ่งทำให้เราได้ผลลัพธ์ที่ดีกว่าอย่างเห็นได้ชัด แต่ก็จะให้เห็นว่ากำไรรวมของตัวชี้วัดที่ใช้ Fuzzy Logic แบบนั้นก็มีค่ามากกว่าแบบ Classical ถึงจะไม่มากเท่ากับแบบ Fuzzy C PSO แต่ในตารางที่ \ref{tab:aroon-macd-stocks} และรูปที่ \ref{fig:aroon-macd-stock} แสดงให้เราเห็นว่าสำหรับในตลาดหุ้น NASDAQ การใช้ตัวชี้วัดที่ใช้ Classical นั้นให้ผลลัพธ์ที่ดีกว่าแบบ Fuzzy Logic โดยเฉพาะในตัวหุ้น TSLA ซึ่งอาจจะมาจากการที่ตลาดมีความผันผวนน้อยกว่าตลาด Crypto Currency ทำให้ข้อดีของ Fuzzy Logic ในการจัดการกับความไม่แน่นอนของตลาดนั้นไม่ได้ช่วยให้ผลลัพธ์ดีขึ้น
 
 \section{RSI-BB}
 สำหรับตัวชี้วัดตัวนี้จะมีตัวแปรทางภาษาตามรูปที่ \ref{fig:rsi-bb-lin} ในภาคผนวก และมี Fuzzy Rules ดังรูปที่ \ref{fig:rsi-bb-rules} ด้านล่างนี้
@@ -118,7 +99,7 @@
     \label{fig:rsi-bb-rules}
 \end{figure}
 
-โดยสำหรับตัวชี้วัดนี้จะเป็นตัวชี้วัดแบบ Mean Reversion ซึ่งคือการที่เราคาดว่าราคาของสินทรัพย์จะมีแนวโน้มที่จะกลับมาสู่ราคาเฉลี่ย โดย bollinger band (bb) จะเป็นตัวบอกว่าราคาของสินทรัพย์นั้นสูงหรือต่ำกว่าค่าเฉลี่ยเกินไปหรือไม่ และ rsi จะเป็นตัวที่บอกเราว่าควรเข้าซื้อ ณ ตอนไหน ถ้าราคาของสินทรัพย์นั้นต่ำกว่าค่าเฉลี่ย และ rsi บอกว่าสินทรัพย์นั้นมีการขายอย่างมาก เราก็จะเข้าซื้อแบบ long และถ้าราคาของสินทรัพย์นั้นสูงกว่าค่าเฉลี่ย และ rsi บอกว่าสินทรัพย์นั้นมีการซื้ออย่างมาก เราก็จะเช้าซื้อแบบ short โดย เราจะเข้าซื้อเมื่อค่าของอินดิเคเตอร์รี้มีค่าเกิน 25
+โดยสำหรับตัวชี้วัดนี้จะเป็นตัวชี้วัดแบบ Mean Reversion ซึ่งคือการที่เราคาดว่าราคาของสินทรัพย์จะมีแนวโน้มที่จะกลับมาสู่ราคาเฉลี่ย โดย Bollinger Band (BB) จะเป็นตัวบอกว่าราคาของสินทรัพย์นั้นสูงหรือต่ำกว่าค่าเฉลี่ยเกินไปหรือไม่ และ RSI จะเป็นตัวที่บอกเราว่าควรเข้าซื้อ ณ ตอนไหน ถ้าราคาของสินทรัพย์นั้นต่ำกว่าค่าเฉลี่ย และ RSI บอกว่าสินทรัพย์นั้นมีการขายอย่างมาก เราก็จะเข้าซื้อแบบ long และถ้าราคาของสินทรัพย์นั้นสูงกว่าค่าเฉลี่ย และ RSI บอกว่าสินทรัพย์นั้นมีการซื้ออย่างมาก เราก็จะเช้าซื้อแบบ short โดย เราจะเข้าซื้อเมื่อค่าของอินดิเคเตอร์รี้มีค่าเกิน 25
 
 \begin{table}[!ht]
     \centering
@@ -133,12 +114,6 @@
     \caption{ผลกำไรขาดทุนของการทดสอบตัวชี้วัด RSI-BB ในตลาด Crypto Currency (หน่วยเป็น USD)}
     \label{tab:rsi-bb-crypto}
 \end{table}
-
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\textwidth]{images/rsi-bb/crypto-result.png}
-    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด RSI-BB ในตลาด Crypto Currency}
-\end{figure}
 
 \begin{table}[!ht]
     \centering
@@ -158,12 +133,71 @@
     \label{tab:rsi-bb-stocks}
 \end{table}
 
+จากตารางที่ \ref{tab:rsi-bb-crypto} และรูปที่ \ref{fig:rsi-bb-crypto} รวมถึงตารางที่ \ref{tab:rsi-bb-stocks} และ \ref{fig:rsi-bb-stock} จะเห็นว่าการใช้ตัวชี้วัดที่ใช้ Fuzzy Logic นั้นให้ผลลัพธ์ที่กว่าตัวชี้วัดแบบ Classical ทั้งในตลาด Crypto Currency และตลาดหุ้น NASDAQ โดยในตลาด Crypto Currency ตัว Fuzzy PSO จะทำงานได้ดีที่สุดซึ่งเหตุผลก็คล้ายๆ กับที่กล่าวในหัวข้อ AROON-MACD ด้านบนก็คือ PSO นั้นเรียนรู้ว่า Crypto Currency มีแนวโน้มที่จะขึ้นตลอด ทำให้มีการเข้าซื้อสินทรัพย์แบบ long มากกว่าแบบ short ทำให้ได้กำไรที่ดีกว่ามาก แต่ในตลาดหุ้น NASDAQ นั้นหุ้นแต่ละตัวไม่ได้มีแนวโน้มที่จะขึ้นเหมือนกันทำให้ PSO ไม่ได้เรียนรู้วิธีแบบตลาด Crypto Currency ทำให้ผลลัพธ์ที่ได้ไม่ได้ดีกว่าการใช้แค่ Fuzzy Logic อย่างเดียว ดังนั้นตัว Fuzzy จึงทำงานได้ดีกว่าในตลาดหุ่้น NASDAQ
+
+\section{การใช้กรอบของเวลาที่ต่างกัน (1h กับ 1d)}
+จากการทดลองด้านบนที่เราใช้กรอบเวลาเป็น 1 ชั่วโมง (1h) เราจะทำการทดลองแบบเดียวกันแต่ใช้กรอบเวลาเป็น 1 วัน (1d) แทน เพื่อสังเกตุความแตกต่างของผลลัพธ์ที่ได้จากการใช้กรอบเวลาที่ต่างกัน โดยจากรูปที่ \ref{fig:aroon-macd-crypto-all}, \ref{fig:aroon-macd-stock-all}, \ref{fig:rsi-bb-crypto-all} และ \ref{fig:rsi-bb-stock-all} เราจะเห็นกว่าการใช้กรอบเวลาที่ต่างกัน ไม่ได้ให้ผลลัพธ์ที่แตกต่างจากกันมาก เราจะสังเกตุได้ว่าผลลัพธ์ที่ได้นั้นมีแนวโน้มไปในทางเดียวกันก็คืออันที่ให้ผลลัพธ์ใน 1h ดีอยู่แล้วก็จะให้ผลลัพธ์ใน 1d ดีเช่นกัน แต่ก็จะมีบางอันที่ให้ผลลัพธ์แย่กว่าเดิมเช่นในรูปที่ \ref{fig:rsi-bb-stock-all} จะสังเกตุเห็นว่า Fuzzy C ใน 1h นั้นให้ผลลัพธ์ที่ดีกว่าใน 1d ซึ่งอาจจะมาจากการที่ความถี่ของการเข้าซื้อสินทรัพย์น้อยกว่าทำให้วิธีจัดการเงินทุนแบบ Liquidation F ส่งผลไม่ดี
+
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/rsi-bb/stock-result.png}
-    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด RSI-BB ในตลาดหุ้น NASDAQ}
+    \subfigure[1h]{\includegraphics[width=0.95\textwidth]{images/aroon-macd/crypto-result.png}
+        \label{fig:aroon-macd-crypto}}
+    \subfigure[1d]{\includegraphics[width=0.95\textwidth]{images/aroon-macd/crypto-result-1d.png}}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด AROON-MACD ในตลาด Crypto Currency ในแต่ละกรอบเวลา}
+    \label{fig:aroon-macd-crypto-all}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \subfigure[1h]{
+        \includegraphics[width=0.95\textwidth]{images/aroon-macd/stock-result.png}
+        \label{fig:aroon-macd-stock}
+    }
+    \subfigure[1d]{\includegraphics[width=0.95\textwidth]{images/aroon-macd/stock-result-1d.png}}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด AROON-MACD ในตลาดหุ้น NASDAQ ในแต่ละกรอบเวลา}
+    \label{fig:aroon-macd-stock-all}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \subfigure[1h]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/crypto-result.png}
+        \label{fig:rsi-bb-crypto}
+    }
+    \subfigure[1d]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/crypto-result-1d.png}}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด RSI-BB ในตลาด Crypto Currency ในแต่ละกรอบเวลา}
+    \label{fig:rsi-bb-crypto-all}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \subfigure[1h]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/stock-result.png}
+        \label{fig:rsi-bb-stock}
+    }
+    \subfigure[1d]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/stock-result-1d.png}}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด RSI-BB ในตลาดหุ้น NASDAQ ในแต่ละกรอบเวลา}
+    \label{fig:rsi-bb-stock-all}
 \end{figure}
 
 \section{การทดลองกับตลาดที่มีทิศทางไม่แน่นอน และตลาดขาลง}
+โดยเราจะทดสอบบนตลาด Crypto Currency โดยใช้เหรียญ ETH/USDT อย่างเดียวโดยจะใช้การทดสอบแบบเดียวกับการทดสอบก่อนหน้า โดยมีเงินเริ่มที่ 3,000 USD มาใช้กับ ETH อย่างเดียวมาทดสอบในช่วงเวลาที่ต่างกัน โดยที่ช่วงเวลาของแต่ละการทดสอบจะเป็น
+\begin{itemize}
+    \item ช่วงที่ตลาดมีทิศทางไม่แน่นอนจะเริ่มที่ 15 พฤษจิกายน 2021 ถึง 16 เมษายน 2022 เป็นเวลาประมาณ 6 เดือน
+    \item ช่วงที่ตลาดเป็นขาลงจะเริ่มที่ 16 กรกฎาคม 2022 ถึง 5 มกราคม 2023 เป็นเวลาประมาณ 6 เดือน 
+\end{itemize}
+สำหรับในตลาดขาลง (downtrend) จะเห็นว่าจากรูปที่ \ref{fig:aroon-macd-down} และ \ref{fig:rsi-bb-down} จะเห็นว่าทั้งแบบ Fuzzy และ Classical นั้นก็ให้ผลลัพธ์ที่ดีกว่าการ Buy \& Hold ไว้ซึ่งก็จะสังเกตุเห็นว่าเส้นกราฟสีเขียว (Fuzzy) นั้นจะเป็นตัวที่ให้ผลลัพธ์ดีที่สุดของทั้ง 2 ตัวชี้วัด แสดงให้เห็นว่าตัวชี้วีแบบ Fuzzy ของเราสามารถจัดการกับตลาดขาลงได้
 
-\section{การใช้กรอบของเวลาที่ต่างกัน (1h กับ 1d)}
+ในส่วนของตลาดที่มีทิศทางไม่แน่นอน (sideway) จากรูปที่ \ref{fig:aroon-macd-side} นั้นตัวเส้นกราฟสีฟ้า (Fuzzy C PSO) นั้นจะให้ผลลัพธ์ดีที่สุดแต่ก็ไม่สามารถทำกำไรได้มากกว่าการ Buy \& Hold แต่ในรูปที่ \ref{fig:rsi-bb-side} จะเห็นว่าแบบ Classical นั้นให้ผลลัพธ์ที่ดีกว่าแบบ Fuzzy อื่นๆ และการ Buy \& Hold ด้วย แต่ก็จะเห็นว่าพวกตัวอื่นๆ ก็จะพยายามตามแน้วโน้มของตลาดทำให้ไม่ได้ขาดทุนเยอะมาก แสดงให้เห็นว่าตัวชี้วัดแบบ Fuzzy ของเราสามารถจัดการกับตลาดที่มีทิศทางไม่แน่น่อนได้เช่นกัน
+
+\begin{figure}[!ht]
+    \centering
+    \subfigure[sideway]{\includegraphics[width=0.95\textwidth]{images/aroon-macd/sideway.png}\label{fig:aroon-macd-side}}
+    \subfigure[downtrend]{\includegraphics[width=0.95\textwidth]{images/aroon-macd/bear.png}}\label{fig:aroon-macd-down}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด AROON-MACD ในตลาด Crypto Currency ในแนวโน้มตลาดแบบทิศทางไม่แน่นอน (sideway) และแบบขาลง (downtrend)}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \subfigure[sideway]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/sideway.png}\label{fig:rsi-bb-side}}
+    \subfigure[downtrend]{\includegraphics[width=0.95\textwidth]{images/rsi-bb/bear.png} \label{fig:rsi-bb-down}}
+    \caption{ความเปลี่ยนของเงินลงทุนของตัวชี้วัด RSI-BB ในตลาด Crypto Currency แนวโน้มตลาดแบบทิศทางไม่แน่นอน (sideway) และแบบขาลง (downtrend)}
+\end{figure}
