@@ -420,7 +420,73 @@ $\text{output}_{\text{max}}$ คือค่าที่มากที่สุ
 \FloatBarrier
 
 \subsubsection{การใช้งานหน้า Backtests}
-.....
+หน้า Backtests จะใช้สำหรับการทดสอบกลยุทธ์ย้อนหลังบน Fuzzy Preset และดูผลลัพธ์การทดสอบ \ref{fig:backtest-no-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-no-result.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า Backtests (ยังไม่มีผลลัพธ์การทดสอบ)}
+    \label{fig:backtest-no-result}
+\end{figure}
+\FloatBarrier
+สามารถกดปุ่ม RUN BACKTEST เพื่อเข้าสู่หน้าการตั้งค่าการทดสอบ โดยเมื่อเข้ามาแล้วจะต้องมีการตั้งค่า 2 ส่วนคือ Trading Essentials และ Ordering Conditions
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-trade-ess.PNG}
+    \caption{Backtest การตั้งค่าการทดสอบในส่วน Trading Essentials}
+    \label{fig:backtest-setup-trade-ess}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Trading Essentials จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Ticker สำหรับเลือกสินทรัพย์ในตลาดที่ต้องการทดสอบ
+    \item Interval เลือก Timeframe ของสินทรัพย์ (1H, 4H, 1D)
+    \item Fuzzy Preset เลือก Preset ที่เราสร้างไว้เพื่อใช้ในการทดสอบ
+    \item Initial Capital กำหนดจำนวนเงินทุนตั้งต้น (USD)
+    \item Start time วันที่เริ่มทดสอบ
+    \item End time วันที่จบการทดสอบ
+\end{enumerate}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-order-conds.PNG}
+    \caption{Backtest การตั้งค่าการทดสอบในส่วน Ordering Conditions}
+    \label{fig:backtest-setup-order-conds}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Ordering Conditions เพือกำหนดเงื่อนไขการ Entry และ Exit Order จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Signal Index เลขดัชนีสัญญาณ Fuzzy
+    \item Signal Threshold ระดับในการสั่งการสัญญาณ
+    \item Signal Do Command คำสั่งที่จะทำเมื่อสัญญาณถึงระดับ Threshold
+    \item Capital Management Type รูปแบบการจัดการเงินทุน (Normal, Liquid-F)
+    \item Minimum Entry Size จำนวนเงินในการ Entry ต่ำสุด (USD)
+    \item Entry Size ขนาด Entry จากจำนวนเงินต้นทุน
+    \item Take Profit ขนาด Profit จากจุดที่ ซื้อ/ขาย เพื่อทำการปิด Order
+    \item Stop Loss ขนาด Loss จากจุดที่ ซื้อ/ขาย เพื่อทำการปิด Order
+\end{enumerate}
+โดยจะสามารถเพิ่ม Conditions ได้หลายเงื่อนไขโดยเมื่อตั้งค่าดังกล่าวแล้วให้ทำการกดปุ่ม ADD CONDITION เงื่อนไขทั้งหมดที่ตั้งค่าจะแสดงในตารางดังรูป \ref{fig:backtest-setup-conditioned} จากนั้นทำการกดปุ่ม RUN BACKTEST เพื่อเริ่มการทดสอบ
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-conditioned.PNG}
+    \caption{ตารางแสดง Ordering Conditions}
+    \label{fig:backtest-setup-conditioned}
+\end{figure}
+\FloatBarrier
+เมื่อทำการกดเริ่มการทดสอบแล้วจะกลับมาหน้าแสดงผลลัพธ์การทดสอบโดยจะมีสถานะการทดสอบแสดงดังรูป \ref{fig:backtest-running} ว่าขณะนี้มีการดำเนินการทดสอบอยู่กี่ตัว โดยเมื่อเสร็จสิ้นแล้วจะแสดงกราฟการปรับเปลี่ยนของจำนวนเงินทุนและข้อมูลอย่าง จำนวนการ Trades, ผลกำไร/ขาดทุน และอื่นๆ ดังรูป \ref{fig:backtest-with-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/backtest-running.PNG}
+    \caption{สถานะแสดงจำนวนการทดสอบ Backtest ที่กำลังดำเนินการ}
+    \label{fig:backtest-running}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-with-result.PNG}
+    \caption{กราฟแสดงผลลัพธ์การทดสอบ Backtest}
+    \label{fig:backtest-with-result}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{การใช้งานหน้า PSO}
 .....
