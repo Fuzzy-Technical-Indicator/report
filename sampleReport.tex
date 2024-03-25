@@ -97,7 +97,7 @@
 \include{chapters/approach}
 \include{chapters/eval}
 \ifproject
-\include{chapters/conclusion}
+  \include{chapters/conclusion}
 \fi
 
 \bibliography{sampleReport}
@@ -108,21 +108,30 @@
 \include{chapters/appendix}
 
 \ifproject
-%% Display glossary (optional) -- need glossary option.
-\ifglossary\glossarypage\fi
+  %% Display glossary (optional) -- need glossary option.
+  \ifglossary\glossarypage\fi
 
-%% Display index (optional) -- need idx option.
-\ifindex\indexpage\fi
+  %% Display index (optional) -- need idx option.
+  \ifindex\indexpage\fi
 
-\begin{biosketch}
-\begin{center}
-  \includegraphics[width=1.5in]{images/tanat.jpg}
-\end{center}
-%Your biosketch goes here. Make sure it sits inside
-%the \texttt{biosketch} environment.
-นายธนัตถ์ ตั้งอั้น รหัส 630610737 นักศึกษาระดับปรีญญาตรีคณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์ มหาวิทายาลัยเชียงใหม่
-\href{https://github.com/RiwEZ}{My Github}, \href{https://riwez.github.io/TanatBlog/}{My Personal Blog} ติดต่อผมได้ที่ ttangun1@gmail.com
+  \begin{biosketch}
+    \begin{center}
+      \includegraphics[width=1.5in]{images/tanat.jpg}
+    \end{center}
+    %Your biosketch goes here. Make sure it sits inside
+    %the \texttt{biosketch} environment.
+    นายธนัตถ์ ตั้งอั้น รหัส 630610737 นักศึกษาระดับปรีญญาตรีคณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์ มหาวิทายาลัยเชียงใหม่
+    \href{https://github.com/RiwEZ}{My Github}, \href{https://riwez.github.io/TanatBlog/}{My Personal Blog} ติดต่อผมได้ที่ ttangun1@gmail.com \\
 
-\end{biosketch}
+    \begin{center}
+      \includegraphics[width=1.5in]{images/thanawat.jpg}
+    \end{center}
+    \overfullrule=0pt
+    นายธนวัตน์ บำเพ็งพันธุ์ 630610736 นักศึกษาระดับปรีญญาตรีคณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์ มหาวิทายาลัยเชียงใหม่
+    \href{https://github.com/0736b}{My Github}, \href{https://0736b.github.io/}{My Website} ติดต่อผมได้ที่ thanawat.bumpengpun@gmail.com
+
+
+  \end{biosketch}
+
 \fi % \ifproject
 \end{document}
