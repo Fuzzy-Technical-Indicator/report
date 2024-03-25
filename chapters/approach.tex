@@ -489,4 +489,42 @@ $\text{output}_{\text{max}}$ คือค่าที่มากที่สุ
 \FloatBarrier
 
 \subsubsection{การใช้งานหน้า PSO}
-.....
+หน้า PSO สำหรับการปรับจูนตัวแปรทางภาษาใน Fuzzy Preset ด้วย PSO โดยการใช้งานจะคล้ายกับหน้า Backtest แต่จะมีส่วนที่จะต้องตั้งค่าเพิ่มคือ PSO Parameters ทำการเข้าสู่หน้าตั้งค่าโดยกดที่ปุ่ม RUN PSO
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-no-result.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า PSO (ยังไม่มีผลลัพธ์)}
+    \label{fig:pso-no-result}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-setup-params.PNG}
+    \caption{การตั้งค่า PSO Parameters}
+    \label{fig:pso-setup-params}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Parameters ของ PSO จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Limit จำนวน Iteration ที่จะหยุด
+    \item Particle Groups จำนวนกลุ่มของอนุภาค
+    \item Particle Amount จำนวนอนุภาคในกลุ่ม
+\end{enumerate}
+และในส่วนของ Trading Essentials จะเหมือนกันกับ Backtest แต่จะมีการตั้ง Validation Period (months) เพิ่มเข้ามา คือระยะเวลาการทำ Validation เป็นจำนวนกี่เดือนก่อนหน้าช่วงเวลาการทดสอบ (ก่อน Start time) เมื่อทำการตั้งค่าเสร็จสิ้นกดปุ่ม RUN PSO เพื่อดำเนินการ
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-result.PNG}
+    \caption{กราฟแสดงผลลัพธ์การปรับจูน PSO (Validation Graph)}
+    \label{fig:pso-result}
+\end{figure}
+\FloatBarrier
+เมื่อทำการดำเนินการเสร็จจะแสดงผลลัพธ์ของการปรับจูนด้วย PSO ดังรูป \ref{fig:pso-result} และสามารถกดปุ่ม TEST RESULT เพื่อดูผลลัพธ์การทดสอบ Backtest บน Preset ที่ถูกปรับจูนตัวแปรทางภาษา PSO และ Validation ได้ดีที่สุด ดังรูป \ref{fig:pso-test-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/pso-test-result.PNG}
+    \caption{ผลการทดสอบ Backtest บน Preset ที่ถูกปรับจูนด้วย PSO และ Validation ได้ดีที่สุด}
+    \label{fig:pso-test-result}
+\end{figure}
+\FloatBarrier
+สามารถกดที่ชื่อ Preset (ตัวหนังสือสีฟ้า) คือ Preset ที่ถูกสร้างใหม่จากการปรับจูนตัวแปรทางภาษาด้วย PSO เพื่อเข้าไปดูลักษณะของ Shapes ตัวแปรทางภาษาที่ถูกปรับด้วย PSO ได้
