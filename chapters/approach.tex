@@ -375,10 +375,193 @@ $\text{output}_{\text{max}}$ คือค่าที่มากที่สุ
 \FloatBarrier
 
 \subsubsection{การใช้งานหน้า Settings}
-.....
+หน้า Settings จะใช้สำหรับการ สร้าง/แก้ไข/ลบ Fuzzy Preset ของเราโดยเมื่อเข้ามาแล้วจะแสดง Fuzzy Preset ทั้งหมดของเราที่มีดังรูป \ref{fig:settings-presets}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/settings-presets.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า Settings}
+    \label{fig:settings-presets}
+\end{figure}
+\FloatBarrier
+ในการสร้าง Fuzzy Preset ใหม่ให้ทำการพิมพ์ชื่อลงในช่อง Preset และกดปุ่ม ADD NEW PRESET โดยจะทำการสร้างและนำพาไปยังหน้าตั้งค่าตัวแปรภาษาและกฏฟัซซีดังรูป \ref{fig:settings-new-preset}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/settings-new-preset.PNG}
+    \caption{Settings ในส่วนหน้าตั้งค่าตัวแปรทางภาษาและกฏฟัซซี}
+    \label{fig:settings-new-preset}
+\end{figure}
+\FloatBarrier
+โดยเริ่มแรกใน Preset ที่สร้างใหม่จะยังไม่มีตัวแปรทางภาษาและกฏ จะต้องทำการเพิ่มโดยใช้ตัวเลือก Dropdown ในการเลือกตัวชี้วัดพื้นฐานเป็นตัวแปรทางภาษา Input และเลือก custom เพื่อสร้างตัวแปรทางภาษา Output โดยจะต้องใส่ชื่อ long/short ดังรูป \ref{fig:settings-lingvars-dd} และ \ref{fig:settings-lingvars-custom}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/settings-lingvars-dd.PNG}
+    \caption{Dropdown สำหรับเลือกตัวชี้วัดพื้นฐานเป็นตัวแปรทางภาษา}
+    \label{fig:settings-lingvars-dd}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/settings-lingvars-custom.PNG}
+    \caption{การเพิ่มตัวแปรทางภาษา Output}
+    \label{fig:settings-lingvars-custom}
+\end{figure}
+\FloatBarrier
+และเมื่อทำการกดปุ่ม ADD LINGUISTIC VARIABLE แล้วจะมีกราฟแสดงในส่วนของรูปร่างของตัวแปรทางภาษาดังรูป \ref{fig:settings-rsi-init} ซึ่งจะยังไม่มีข้อมูลผู้ใช้งานต้องทำการปรับเปลี่ยนในส่วนของ Universe และ Shapes ของตัวแปรทางภาษาโดยจะสามารถเพิ่ม Shape ได้ 2 แบบคือ Triangle, Trapezoid ดังรูป \ref{fig:settings-lingvar-editor}, \ref{fig:settings-lingvar-shapes-dd}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/settings-rsi-init.PNG}
+    \caption{กราฟตัวแปรทางภาษา Input RSI ที่ยังไม่ได้ตั้งค่า}
+    \label{fig:settings-rsi-init}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/settings-lingvar-editor.PNG}
+    \caption{เมนูการตั้งค่า Universe และ Shapes ของตัวแปรทางภาษา}
+    \label{fig:settings-lingvar-editor}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/settings-lingvar-shapes-dd.PNG}
+    \caption{Dropdown สำหรับการเลือกเพิ่ม Shape ในตัวแปรทางภาษา}
+    \label{fig:settings-lingvar-shapes-dd}
+\end{figure}
+\FloatBarrier
+โดยเมื่อทำการปรับเปลี่ยน Universe และ Shapes แล้วจะต้องทำการกดปุ่ม Save เพื่อบันทึกการเปลี่ยนแปลง หรือปุ่ม Remove เพื่อลบตัวแปรทางภาษาได้ โดยเมื่อทำการปรับเปลี่ยนแล้วจะได้ดังรูป \ref{fig:settings-lingvar-edited}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/settings-lingvar-edited.PNG}
+    \caption{เมนู Universe และ Shapes เมื่อปรับตั้งค่าแล้ว}
+    \label{fig:settings-lingvar-edited}
+\end{figure}
+\FloatBarrier
+และกราฟจะแสดง Shapes ที่ผู้ใช้สร้างเข้าไปดังรูป \ref{fig:settings-lingvar-edited-graph}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/settings-lingvar-edited-graph.PNG}
+    \caption{กราฟตัวแปรทางภาษาเมื่อปรับตั้ง Universe และ Shapes แล้ว}
+    \label{fig:settings-lingvar-edited-graph}
+\end{figure}
+\FloatBarrier
+ในส่วนสุดท้ายจะเป็นการเพิ่มกฏฟัซซีโดยจะเพิ่มได้อย่างสมบูรณ์ก็ต่อเมื่อผู้ใช้งานทำการสร้างตัวแปรทางภาษาทั้ง Input และ Output แล้ว โดยจะสามารถเลือกระดับตัวแปรทางภาษาในแต่ละตัวแปรทางภาษา Input, Output และทำการกดปุ่ม ADD RULE เพื่อเพิ่มกฏ หากกฏที่เพิ่มสมบูรณ์ในคอลัมน์ Valid จะแสดงคำว่า true ด้านหน้ากฏนั้นๆ ดังรูป \ref{fig:settings-rules} และ \ref{fig:settings-rules-dd}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/settings-rules.PNG}
+    \caption{เมนู เพิ่ม/ลบ กฏฟัซซีใน Preset}
+    \label{fig:settings-rules}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/settings-rules-dd.PNG}
+    \caption{Dropdown การเลือกระดับตัวแปรทางภาษาตาม Shapes ที่ผู้ใช้งานสร้างไว้ในตัวแปรทางภาษานั้น}
+    \label{fig:settings-rules-dd}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{การใช้งานหน้า Backtests}
-.....
+หน้า Backtests จะใช้สำหรับการทดสอบกลยุทธ์ย้อนหลังบน Fuzzy Preset และดูผลลัพธ์การทดสอบ \ref{fig:backtest-no-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-no-result.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า Backtests (ยังไม่มีผลลัพธ์การทดสอบ)}
+    \label{fig:backtest-no-result}
+\end{figure}
+\FloatBarrier
+สามารถกดปุ่ม RUN BACKTEST เพื่อเข้าสู่หน้าการตั้งค่าการทดสอบ โดยเมื่อเข้ามาแล้วจะต้องมีการตั้งค่า 2 ส่วนคือ Trading Essentials และ Ordering Conditions
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-trade-ess.PNG}
+    \caption{Backtest การตั้งค่าการทดสอบในส่วน Trading Essentials}
+    \label{fig:backtest-setup-trade-ess}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Trading Essentials จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Ticker สำหรับเลือกสินทรัพย์ในตลาดที่ต้องการทดสอบ
+    \item Interval เลือก Timeframe ของสินทรัพย์ (1H, 4H, 1D)
+    \item Fuzzy Preset เลือก Preset ที่เราสร้างไว้เพื่อใช้ในการทดสอบ
+    \item Initial Capital กำหนดจำนวนเงินทุนตั้งต้น (USD)
+    \item Start time วันที่เริ่มทดสอบ
+    \item End time วันที่จบการทดสอบ
+\end{enumerate}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-order-conds.PNG}
+    \caption{Backtest การตั้งค่าการทดสอบในส่วน Ordering Conditions}
+    \label{fig:backtest-setup-order-conds}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Ordering Conditions เพือกำหนดเงื่อนไขการ Entry และ Exit Order จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Signal Index เลขดัชนีสัญญาณ Fuzzy
+    \item Signal Threshold ระดับในการสั่งการสัญญาณ
+    \item Signal Do Command คำสั่งที่จะทำเมื่อสัญญาณถึงระดับ Threshold
+    \item Capital Management Type รูปแบบการจัดการเงินทุน (Normal, Liquid-F)
+    \item Minimum Entry Size จำนวนเงินในการ Entry ต่ำสุด (USD)
+    \item Entry Size ขนาด Entry จากจำนวนเงินต้นทุน
+    \item Take Profit ขนาด Profit จากจุดที่ ซื้อ/ขาย เพื่อทำการปิด Order
+    \item Stop Loss ขนาด Loss จากจุดที่ ซื้อ/ขาย เพื่อทำการปิด Order
+\end{enumerate}
+โดยจะสามารถเพิ่ม Conditions ได้หลายเงื่อนไขโดยเมื่อตั้งค่าดังกล่าวแล้วให้ทำการกดปุ่ม ADD CONDITION เงื่อนไขทั้งหมดที่ตั้งค่าจะแสดงในตารางดังรูป \ref{fig:backtest-setup-conditioned} จากนั้นทำการกดปุ่ม RUN BACKTEST เพื่อเริ่มการทดสอบ
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-setup-conditioned.PNG}
+    \caption{ตารางแสดง Ordering Conditions}
+    \label{fig:backtest-setup-conditioned}
+\end{figure}
+\FloatBarrier
+เมื่อทำการกดเริ่มการทดสอบแล้วจะกลับมาหน้าแสดงผลลัพธ์การทดสอบโดยจะมีสถานะการทดสอบแสดงดังรูป \ref{fig:backtest-running} ว่าขณะนี้มีการดำเนินการทดสอบอยู่กี่ตัว โดยเมื่อเสร็จสิ้นแล้วจะแสดงกราฟการปรับเปลี่ยนของจำนวนเงินทุนและข้อมูลอย่าง จำนวนการ Trades, ผลกำไร/ขาดทุน และอื่นๆ ดังรูป \ref{fig:backtest-with-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{images/web-tuts/backtest-running.PNG}
+    \caption{สถานะแสดงจำนวนการทดสอบ Backtest ที่กำลังดำเนินการ}
+    \label{fig:backtest-running}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/backtest-with-result.PNG}
+    \caption{กราฟแสดงผลลัพธ์การทดสอบ Backtest}
+    \label{fig:backtest-with-result}
+\end{figure}
+\FloatBarrier
 
 \subsubsection{การใช้งานหน้า PSO}
-.....
+หน้า PSO สำหรับการปรับจูนตัวแปรทางภาษาใน Fuzzy Preset ด้วย PSO โดยการใช้งานจะคล้ายกับหน้า Backtest แต่จะมีส่วนที่จะต้องตั้งค่าเพิ่มคือ PSO Parameters ทำการเข้าสู่หน้าตั้งค่าโดยกดที่ปุ่ม RUN PSO
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-no-result.PNG}
+    \caption{เว็บแอปพลิเคชัน หน้า PSO (ยังไม่มีผลลัพธ์)}
+    \label{fig:pso-no-result}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-setup-params.PNG}
+    \caption{การตั้งค่า PSO Parameters}
+    \label{fig:pso-setup-params}
+\end{figure}
+\FloatBarrier
+การตั้งค่า Parameters ของ PSO จะประกอบไปด้วย
+\begin{enumerate}
+    \overfullrule=0pt
+    \item Limit จำนวน Iteration ที่จะหยุด
+    \item Particle Groups จำนวนกลุ่มของอนุภาค
+    \item Particle Amount จำนวนอนุภาคในกลุ่ม
+\end{enumerate}
+และในส่วนของ Trading Essentials จะเหมือนกันกับ Backtest แต่จะมีการตั้ง Validation Period (months) เพิ่มเข้ามา คือระยะเวลาการทำ Validation เป็นจำนวนกี่เดือนก่อนหน้าช่วงเวลาการทดสอบ (ก่อน Start time) เมื่อทำการตั้งค่าเสร็จสิ้นกดปุ่ม RUN PSO เพื่อดำเนินการ
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/web-tuts/pso-result.PNG}
+    \caption{กราฟแสดงผลลัพธ์การปรับจูน PSO (Validation Graph)}
+    \label{fig:pso-result}
+\end{figure}
+\FloatBarrier
+เมื่อทำการดำเนินการเสร็จจะแสดงผลลัพธ์ของการปรับจูนด้วย PSO ดังรูป \ref{fig:pso-result} และสามารถกดปุ่ม TEST RESULT เพื่อดูผลลัพธ์การทดสอบ Backtest บน Preset ที่ถูกปรับจูนตัวแปรทางภาษา PSO และ Validation ได้ดีที่สุด ดังรูป \ref{fig:pso-test-result}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{images/web-tuts/pso-test-result.PNG}
+    \caption{ผลการทดสอบ Backtest บน Preset ที่ถูกปรับจูนด้วย PSO และ Validation ได้ดีที่สุด}
+    \label{fig:pso-test-result}
+\end{figure}
+\FloatBarrier
+สามารถกดที่ชื่อ Preset (ตัวหนังสือสีฟ้า) คือ Preset ที่ถูกสร้างใหม่จากการปรับจูนตัวแปรทางภาษาด้วย PSO เพื่อเข้าไปดูลักษณะของ Shapes ตัวแปรทางภาษาที่ถูกปรับด้วย PSO ได้
