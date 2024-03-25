@@ -1,16 +1,9 @@
-\subsubsection{Backend}
-ได้มีการจัดเก็บข้อมูลตลาดหุ้น, ตลาด crypto currency และสร้างระบบอัพเดตข้อมูลอัตโนมัติ ได้เขียนโปรแกรมสำหรับ Fuzzy Logic ไปบางส่วนแล้ว
-รวมถึงมีการลองทำตัวเว็บเซิร์ฟเวอร์ไปบ้าง โดยสามารถดู code ได้ที่ \url{https://github.com/Fuzzy-Technical-Indicator/backend}
-
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{images/db_example.png}
     \caption{ตัวอย่างข้อมูลตลาดหุ้นในฐานข้อมูล}
 \end{figure}
-\pagebreak
 
-
-\subsubsection{การตั้งค่าของตัวชี้วัด}
 \begin{figure}[ht]
     \centering
     \subfigure[aroon up]{\includegraphics[width=0.4\textwidth]{images/aroon-macd/aroondown.png}}
@@ -34,19 +27,195 @@
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.4\textwidth]{images/aroon-macd/example.png}
+    \includegraphics[width=\textwidth]{images/aroon-macd/example.png}
     \caption{ตัวอย่างผลลัพธ์ของ AROON-MACD แบบ Fuzzy C PSO}
     \label{fig:aroon-macd-example}
 \end{figure}
 
-\subsubsection{ผลลัพธ์จากการใช้ PSO ฝึกสอน}
 \begin{figure}[ht]
     \centering
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/eth-normal.png}}
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/btc-normal.png}}
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/bnb-normal.png}}
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/eth-liquid.png}}
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/btc-liquid.png}}
-    \subfigure[]{\includegraphics[width=0.5\textwidth]{images/pso/aroon-macd/bnb-liquid.png}}
-    \caption{}
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/eth-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (ETH)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/btc-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (BTC)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/bnb-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (BNB)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/aapl-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (AAPL)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/ibm-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (IBM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/jpm-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (JPM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/msft-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (MSFT)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/nke-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (NKE)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/tsla-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบไม่มีการจัดการเงินทุน (TSLA)}
+\end{figure}
+
+% ----------------------
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/eth-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (ETH)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/btc-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (BTC)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/bnb-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (BNB)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/aapl-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (AAPL)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/ibm-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (IBM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/jpm-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (JPM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/msft-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (MSFT)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/nke-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (NKE)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/aroon-macd/tsla-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ AROON-MACD แบบมีการจัดการเงินทุน (TSLA)}
+\end{figure}
+
+% ---------------------------------------- !!!!!!
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/eth-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (ETH)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/btc-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (BTC)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/bnb-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (BNB)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/aapl-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (AAPL)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/ibm-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (IBM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/jpm-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (JPM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/msft-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (MSFT)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/nke-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (NKE)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/tsla-normal.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบไม่มีการจัดการเงินทุน (TSLA)}
+\end{figure}
+
+% ----------------------
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/eth-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (ETH)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/btc-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (BTC)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/bnb-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (BNB)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/aapl-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (AAPL)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/ibm-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (IBM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/jpm-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (JPM)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/msft-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (MSFT)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/nke-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (NKE)}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/pso/rsi-bb/tsla-liquid.png}
+    \caption{ผลลัพธ์ของการการใช้ PSO กับ RSI-BB แบบมีการจัดการเงินทุน (TSLA)}
 \end{figure}
