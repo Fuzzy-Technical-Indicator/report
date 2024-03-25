@@ -158,3 +158,50 @@ Extracurricular knowledge used, applied, or integrated in this project
 }
 
 ความรู้เกี่ยวกับการเทรด การใช้งานและวิเคราะห์ตัวชี้วัดทางเทคนิค
+
+\section{เครื่องมือและเทคโนโลยีหลักที่ใช้ในการพัฒนาระบบ}
+\subsection{SvelteKit}
+SvelteKit คือแอปพลิเคชันเฟรมเวิร์กสำหรับภาษา JavaScript/TypeScript ใช้ในการสร้างส่วนหน้าเว็บแอปพลิเคชัน การใช้งานเฟรมเวิร์คตัวนี้สามารถช่วยให้พัฒนาส่วนหน้าเว็บที่ใช้รองรับโต้ตอบกับผู้ใชงานได้อย่างรวดเร็วด้วยสถาปัตยกรรมแบบ File-based routing, Server-side rendering และกระบวนการพัฒนาที่ได้รับการปรับปรุงทำให้ขั้นตอนการพัฒนาคล่องตัวเป็นอย่างมาก ส่งผลให้แอปพลิเคชันสามารถพัฒนาส่วนหน้าเว็บได้อย่างรวดเร็วและมีประสิทธิภาพ
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.025]{images/tech/sveltekit.png}
+  \caption{เฟร์มเวิร์ก SvelteKit}
+  \label{fig:sveltekit}
+\end{figure}
+\FloatBarrier
+
+\subsection{Actix Web}
+Actix Web คือเว็บเฟร์มเวิร์กสำหรับภาษา Rust โดยได้รับการออกแบบมาเพื่อให้ง่ายต่อการสร้างเว็บแอปพลิเคชันแบบ High-performance asynchronous โดยมีคุณสมบัติสำคัญหลักๆดังนี้
+ิ\begin{itemize}
+  \item Asynchronous ใช้ประโยชน์จาก async/await ของภาษา Rust เพื่อจัดการกับการทำงานอย่างมีประสิทธิภาพ ทำให้เหมาะกับการจัดการการเชื่อมต่อพร้อมกันจำนวนมาก
+  \item Performance เป็นหนึ่งในเว็บเฟร์มเวิร์กที่เร็วที่สุดของภาษา Rust เนื่องจากมีการจัดการ HTTP Request อย่างมีประสิทธิภาพ
+  \item Middleware ตัวเฟร์มเวิร์กมีการจัดเตรียม Middleware ที่ช่วยให้นักพัฒนาสามารถเพิ่มส่วนประกอบต่างๆที่ต้องการใช้งาน Middleware ได้อย่างง่ายดาย เช่น การทำ Authentication
+  \item Extensible ตัวเฟร์มเวิร์กได้รับการออกแบบให้เป็น Modular โดยสามารถใช้ Package manager ของภาษา Rust สำหรับการเพิ่มการทำงานส่วนต่างๆได้อย่างสะดวก เช่น การเชื่อมต่อกับฐานข้อมูล, การจัดการ Session
+\end{itemize}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.1]{images/tech/actix.png}
+  \caption{เฟร์มเวิร์ก Actix Web}
+  \label{fig:actix}
+\end{figure}
+\FloatBarrier
+
+\subsection{MongoDB}
+MongoDB เป็นระบบจัดการฐานข้อมูลแบบ NoSQL และเป็น Open-source ที่ได้รับความนิยมและเป็นที่รู้จักในด้านความยืดหยุ่น ความสามารถในการขยายขนาด และความสะดวกในการใช้งาน โดย MongoDB จัดเก็บข้อมูลในรูปแบบเอกสารที่คล้ายกับ JSON ซึ่งเรียกว่า BSON (Binary JSON) ทำให้เหมาะสำหรับการจัดการข้อมูลที่ไม่มีโครงสร้างหรือกึ่งโครงสร้าง
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.025]{images/tech/mongodb.png}
+  \caption{ฐานข้อมูล MongoDB}
+  \label{fig:mongodb}
+\end{figure}
+\FloatBarrier
+
+\subsection{AWS Lambda}
+AWS Lambda เป็นบริการประมวลผลแบบไร้เซิร์ฟเวอร์ที่ให้บริการโดย Amazon Web Services (AWS) ที่สามารถรันโค้ดโดยไม่ต้องจัดเตรียมหรือจัดการเซิร์ฟเวอร์ สามารถอัปโหลดโค้ดเป็นฟังก์ชัน และสั่งให้ AWS ดำเนินการเพื่อตอบสนองต่อ Trigger ต่างๆ เช่น HTTP Request, การเปลี่ยนแปลงข้อมูลใน Amazon S3, การอัปเดตตารางข้อมูล หรือเหตุการณ์แบบกำหนดเอง
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.05]{images/tech/aws_lambda.png}
+  \caption{ฐานข้อมูล AWS Lambda}
+  \label{fig:aws-lambda}
+\end{figure}
+\FloatBarrier
